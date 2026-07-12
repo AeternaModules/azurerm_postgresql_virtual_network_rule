@@ -1,3 +1,7 @@
+output "postgresql_virtual_network_rules_id" {
+  description = "Map of id values across all postgresql_virtual_network_rules, keyed the same as var.postgresql_virtual_network_rules"
+  value       = { for k, v in azurerm_postgresql_virtual_network_rule.postgresql_virtual_network_rules : k => v.id }
+}
 output "postgresql_virtual_network_rules_ignore_missing_vnet_service_endpoint" {
   description = "Map of ignore_missing_vnet_service_endpoint values across all postgresql_virtual_network_rules, keyed the same as var.postgresql_virtual_network_rules"
   value       = { for k, v in azurerm_postgresql_virtual_network_rule.postgresql_virtual_network_rules : k => v.ignore_missing_vnet_service_endpoint }
